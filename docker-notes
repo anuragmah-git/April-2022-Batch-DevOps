@@ -28,3 +28,108 @@ Que4). who can use it?
 =>Docker has been designed in a way that it can be incorporated into most DevOps applications, including Puppet, Chef, Vagrant, and Ansible, 
   or it can be used on its own to manage development environments. The primary selling point is that it simplifies many of the tasks typically done by these other applications.
 
+========
+Day-1:
+========
+#
+Diff bet'n Physical server, Virtual server and Docker container.
+
+VM, Docker, usage in realtime
+
+#
+what is docker? why docker? who can use it?
+
+
+#
+Supported Platforms-
+	- Docker is supported on
+		- Linux platforms
+			Ubuntu, RHEL, CentOs..etc.
+		- Windows  
+		- OS X 		
+		  
+	- Cloud Platforms
+		Amazon EC2
+		Rackspace Cloud
+		Google compute Engine..etc.
+		Azure
+
+Note:
+Linux containers can be created on Windows and OS X.
+HOW?- Windows Docker installer contains a tiny Linux virtual machine. Docker creates linux container on top of this tiny Linux VM.
+
+
+Requirements:
+	- 64-bit architecture	  
+	- Linux 3.8 or later Kernel versions
+
+
+#
+Requirements Check:
+- Check Kernel version
+	$ uname -a Or -r
+
+NOTE: Kernel can also be upgraded.
+
+- Check OS name:
+	$ lsb_release -a / -cs
+	$ cat /etc/os-release	
+
+
+Installation Steps:
+===========	==========	
+# Update apt-get cache
+	$ sudo apt-get update
+
+# Install docker dependencies
+	$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+
+# Add GPG key to apt repository
+	$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Setup Stable repository:
+	$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	
+# Update apt package index:
+	$ sudo apt-get update
+	
+# Install Latest version of Docker
+	$ sudo apt-get install docker-ce
+
+#
+Installation Check
+sudo docker --version
+
+#
+uninstall docker:
+$ sudo apt-get remove docker-ce
+
+=======
+DAY-2
+=======
+#
+Managing docker containers
+===============================
+#
+docker run command:
+- "docker run" command provides all lanuching capabilities for docker to create a container.
+- we use `docker run` to create new containers.
+
+
+# Creating first container
+
+sudo docker run -i -t or -it ubuntu /bin/bash
+
+	-i : opens STDIN from the container
+	-t : tells docker to assign a pseudo-tty to the
+		 container.
+	-it : provides interactive shell or terminal(it).
+	
+	`ubuntu`: is an image and also called as "stock image" or "base image".
+			  This will be downloaded by default from 'Docker hub' for the first
+			  time.
+	
+	/bin/bash: which shell need to be installed in the terminal (shell that run in the terminal)
+
+
+
