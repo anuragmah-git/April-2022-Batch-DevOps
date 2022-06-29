@@ -338,4 +338,68 @@ DAY-3:
 		docker rm -f `docker ps -q`
 
 
+DAY-4:
+# Docker Images
+=================
+Agenda:
+	- Understand docker Image
+	- Create docker Image
+	- Store docker Image
+	- Share your own Image
+	- Examine repositories that hold images
+
+- Docker images are the building blocks for creating container.
+- From images, we launch containers.
+	
+# Listing docker images
+
+	$ sudo docker images
+		or
+	$ sudo docker image ls
+
+	$ sudo docker images -q 
+		Note :- It shows only ids.
+
+	$ sudo docker rmi `sudo docker images -q`
+		Note :- remove all images using this command.
+
+
+# Images are stored in First directory and Containers are stored in Second directory. 
+  ------               --------------      ----------
+1.) Images live in -  '/var/lib/docker/image/overlay2/imagedb/content/sha256' --> This path is applicable on ubuntu OS only 
+                   -  '/var/lib/docker/overlay2/iamgedb/content/sha256' --> This path is applicable on centos7 OS only
+2.) Containers live in /var/lib/docker/containers
+
+
+DAY-5:
+PROJECT-1:
+============
+#
+SETTING-UP NGINX SERVER ON UBUNTU MANUALLY:
+--------------------------------------------
+ 
+ $ sudo apt-get update
+ $ sudo apt-get install -y nginx
+
+# start/stop/restart nginx server:
+  =========== 			
+ 	$ sudo service nginx start
+ 		       nginx stop 
+		       nginx restart
+		       nginx status
+
+# Deployment Path of the nginx server
+	 Web content/Deployment path: $ cd /var/www/html
+
+# Uninstall nginx:
+ 	$ sudo apt-get purge nginx nginx-common
+
+
+# Building our own Image
+	We have 2 Ways to create docker image:
+		1. docker "commit" (depricited)
+		2. docker "build" cmd & Dockerfile
+
+
+
 
